@@ -1,0 +1,28 @@
+<div class="payment-method" data-bind="css: {'_active': (getCode() == isChecked())}">
+    <div class="payment-method-title field choice">
+        <input type="radio"
+               name="payment[method]"
+               class="radio"
+               data-bind="attr: {'id': getCode()}, value: getCode(), checked: isChecked, click: selectPaymentMethod, visible: isRadioButtonVisible()" />
+        <label data-bind="attr: {'for': getCode()}" class="label">
+            <span data-bind="text: getTitle()"></span>
+        </label>
+    </div>
+    <div class="payment-method-content">
+        <div class="flexible-payment-modal">
+            <div class="flexible-payment-content">
+                <span class="close-btn-flexible-payment" data-bind="click:function(){closepopup()}">X</span>
+                <div class="fl-pay-head">
+                    <!-- ko i18n: 'Your Plan Flexible Credit' --><!-- /ko -->
+                </div>
+                <div>
+                    <ul>
+                        <li><!-- ko i18n: 'Choose the Payment terms that suits you, from 12-36 months.' --><!-- /ko --></li>
+                        <li><!-- ko i18n: 'Enjoy credit on future purchase €99 & over.' --><!-- /ko --></li>
+                        <li><!-- ko i18n: '24.9% APR representatives (Variable)' --><!-- /ko --></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

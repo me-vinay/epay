@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Zealousweb. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="Zealousweb_extensions" translate="label" sortOrder="300">
+            <label>Language Translator</label>
+        </tab>
+        <section id="gtranslator" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Google Translator</label>
+            <tab>Zealousweb_extensions</tab>
+            <resource>Zealousweb_GTranslator::config_gtranslator</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enable" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>This will enable GOOGLE TRANSLATOR to header panel.</comment>
+                </field>
+                <field id="page_language" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Page Language</label>
+                    <source_model>Zealousweb\GTranslator\Model\Config\Source\Languages</source_model>
+                    <comment>Select the default language of the website.</comment>
+                </field>
+                <field id="languages_included" translate="label comment" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Languages Included</label>
+                    <source_model>Zealousweb\GTranslator\Model\Config\Source\Languages</source_model>
+                    <comment>Select the list of languages which are enable for the translation at frontend.</comment>
+                </field>
+            </group>
+            <group id="design" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Design</label>
+                <field id="position" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Position</label>
+                    <source_model>Zealousweb\GTranslator\Model\Config\Source\Position</source_model>
+                    <comment>This will add float style of the control to set the position. Select GOOGLE TRANSLATOR position in header panel based on you theme settings.</comment>
+                </field>
+                <field id="custom_style" translate="label comment" type="textarea" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Style</label>
+                    <comment><![CDATA[Apart from position, you can add custom style to GOOGLE TRANSLATOR control based on your theme. <br /><b>FOR EXAMPLE</b> border: none;]]></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

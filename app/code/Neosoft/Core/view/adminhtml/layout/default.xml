@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Epayerz Admin</title>
+    </head>
+	<body>
+		<referenceBlock name="logo">
+            <arguments>
+            	<argument name="logo_image_src" xsi:type="string">Neosoft_Core/images/logo-square.png</argument>
+            </arguments>
+        </referenceBlock>
+		<referenceBlock name="copyright">
+            <arguments>
+                <argument name="template" xsi:type="string">
+                   Neosoft_Core::page/copyright.phtml
+                </argument>
+            </arguments>
+       </referenceBlock>
+	</body>
+</page>

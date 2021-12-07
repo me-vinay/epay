@@ -1,0 +1,18 @@
+/**
+ * Copyright © 2015 Zealousweb. All rights reserved.
+ */
+
+iframe.goog-te-menu-frame { margin-top: 10px; }
+
+div#google_translate_element { margin-left: 5px;}
+
+div#google_translate_element img.goog-te-gadget-icon { margin-right: 4px; } 
+
+div#google_translate_element div.goog-te-gadget-simple { background-color: transparent; border: none; padding: 0; margin: 0; }
+div#google_translate_element div.goog-te-gadget-simple a.goog-te-menu-value { text-decoration: none; }
+div#google_translate_element div.goog-te-gadget-simple a.goog-te-menu-value span { color: #FFFFFF; display: none; }
+div#google_translate_element div.goog-te-gadget-simple a.goog-te-menu-value img { display: none; }
+div#google_translate_element div.goog-te-gadget-simple a.goog-te-menu-value span:first-child { display: inline; }
+.goog-te-gadget-icon{
+    display: none !important;
+}

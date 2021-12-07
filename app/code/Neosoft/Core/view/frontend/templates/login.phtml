@@ -1,0 +1,15 @@
+<?php 
+$isLoggedin = $block->getCustomerId();
+// print($isLoggedin);
+if(!$isLoggedin) {
+   echo $this->getLayout()
+          ->createBlock('Magento\Cms\Block\Block')
+          ->setBlockId('customer_account')
+          ->toHtml(); 
+} else {
+    echo $this->getLayout()
+          ->createBlock('Magento\Cms\Block\Block')
+          ->setBlockId('customer_account_sign_out')
+          ->toHtml(); 
+}
+?>

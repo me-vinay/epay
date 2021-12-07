@@ -1,0 +1,8 @@
+@media only screen and (min-width: 768px) {
+    .page-footer .footer-middle, .page-footer .footer-bottom{
+      background: #f4f4f4;
+    }
+    .page-footer .footer-middle .block .block-title strong, .page-footer  .footer-middle .contact-info b{
+      color: #000 !important;
+    }
+}

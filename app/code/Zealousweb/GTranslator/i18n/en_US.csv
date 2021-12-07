@@ -1,0 +1,15 @@
+Left,Left
+Right,Right
+None,None
+General,General
+Enable,Enable
+This will enable GOOGLE TRANSLATOR to header panel.,This will enable GOOGLE TRANSLATOR to header panel.
+Page Language,Page Language
+Select the default language of the website.,Select the default language of the website.
+Languages Included,Languages Included
+Select the list of languages which are enable for the translation at frontend.,Select the list of languages which are enable for the translation at frontend.
+Design,Design
+Position,Position
+This will add float style of the control to set the position. Select GOOGLE TRANSLATOR position in header panel based on you theme settings.,This will add float style of the control to set the position. Select GOOGLE TRANSLATOR position in header panel based on you theme settings.
+Custom Style,Custom Style
+"Apart from position, you can add custom style to GOOGLE TRANSLATOR control based on your theme. <br /><b>FOR EXAMPLE</b> border: none;","Apart from position, you can add custom style to GOOGLE TRANSLATOR control based on your theme. <br /><b>FOR EXAMPLE</b> border: none;"

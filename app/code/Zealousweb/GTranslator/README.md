@@ -1,0 +1,1 @@
+Zealousweb_GTranslator module allows customer to translate page content with different enabled languages within mangento store configuration section. It also allows admin to set the default page language and choose allowed languages to translate.

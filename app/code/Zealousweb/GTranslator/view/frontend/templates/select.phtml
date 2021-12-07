@@ -1,0 +1,22 @@
+<?php
+/**
+ * Copyright © 2015 Zealousweb. All rights reserved.
+ */
+
+/** @var \Zealousweb\GTranslator\Block\Select $block */
+?>
+
+<!-- <div id="google_translate_element" style="<?php echo $block->getStyle(); ?>"></div>
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: '<?php echo $block->getPageLanguage(); ?>', includedLanguages: '<?php echo $block->getLanguagesIncluded(); ?>', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+	}
+</script> -->
+
+<?php
+echo $this->getLayout()
+->createBlock('Magento\Cms\Block\Block')
+->setBlockId('top_right_nav')
+->toHtml();
+?>

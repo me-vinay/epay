@@ -1,0 +1,12 @@
+<?php
+  $customername = $block->getCustomerName();
+  $url = $block->getStoreUrl();
+if($customername && $block->getCustomerId()) {?>
+  <a href="<?php echo ($url.'customer/account');?>" title="My Account"><i class="porto-new-icon-user-2"></i><span><span style="display: block;font-size: 12px;line-height: 1;letter-spacing: -0.3px;margin-bottom: 3px;">Hello!</span><span style="line-height: 1;display: block;font-weight: 700;"><?php echo $customername; ?></span></span></a>
+
+<?php } else { ?>
+  <a href="<?php echo ($url.'customer/account');?>" title="My Account"><i class="porto-new-icon-user-2"></i><span><span style="display: block;font-size: 12px;line-height: 1;letter-spacing: -0.3px;margin-bottom: 3px;">Hello!</span><span style="line-height: 1;display: block;font-weight: 700;">Sign In</span></span> </a>
+
+<?php }
+
+?>

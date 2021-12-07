@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Zealousweb. All rights reserved.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<head>
+       <css src="Zealousweb_GTranslator::css/gtranslator.css" />
+       <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" src_type="url" />
+	</head>
+    <body>
+    	<referenceContainer name="header.panel">
+    		<block class="Zealousweb\GTranslator\Block\Select" name="gtranslator_select" as="gtranslator_select" template="Zealousweb_GTranslator::select.phtml" ifconfig="gtranslator/general/enable" />
+    	</referenceContainer>
+    </body>
+</page>

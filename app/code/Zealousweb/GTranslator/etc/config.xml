@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Zealousweb. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <gtranslator>
+            <general>
+                <enable>1</enable>
+                <page_language>en</page_language>
+                <languages_included>fr,de,es</languages_included>
+            </general>
+            <design>
+                <position>left</position>
+            </design>
+        </gtranslator>
+    </default>
+</config>
