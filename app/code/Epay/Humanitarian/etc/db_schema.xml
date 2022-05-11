@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="humanitarian_donor" resource="default" engine="innodb" comment="Donation Table">
+        <column xsi:type="int" name="donor_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Donor Id"/>
+        <column xsi:type="varchar" name="product_sku" nullable="true" length="50" comment="Product Sku"/>
+        <column xsi:type="varchar" name="description" nullable="true" length="50" comment="Description"/>
+        <column xsi:type="varchar" name="donated_by" nullable="false" length="50" comment="Donated by"/>
+        
+        <column xsi:type="varchar" name="donor_type" nullable="false" length="255"  comment="Donor type"/>
+        <column xsi:type="int" name="qty" nullable="true"  comment="Qnt Donated"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="true" default="CURRENT_TIMESTAMP" comment="Donation Date"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="donor_id"/>
+        </constraint>
+
+    </table>
+
+    <table name="humanitarian_pickup_details" resource="default" engine="innodb" comment="Pickup Details Table">
+        <column xsi:type="int" name="pickup_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Pickup Id"/>
+        <column xsi:type="varchar" name="product_sku" nullable="true" length="50" comment="Product sku"/>
+        <column xsi:type="varchar" name="description" nullable="true" length="50" comment="Description"/>
+        <column xsi:type="varchar" name="donated_by" nullable="false" length="50" comment="Donated by"/>
+        <column xsi:type="varchar" name="address" nullable="true" length="255"  comment="Pickup Address"/>
+        <column xsi:type="int" name="qty" nullable="true" comment="Quantitt"/>
+        <column xsi:type="varchar" name="status" nullable="false" length="50" comment="Status"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="true" default="CURRENT_TIMESTAMP" comment="Collection Requested Date"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="pickup_id"/>
+        </constraint>
+    </table>
+
+    <table name="humanitarian_product_details" resource="default" engine="innodb" comment="Product Details Table">
+        <column xsi:type="int" name="product_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Product Id"/>
+        <column xsi:type="varchar" name="product_sku" nullable="true" length="50" comment="Product Sku"/>
+        <column xsi:type="varchar" name="image_path" nullable="true" length="50" comment="Image Path"/>
+        <column xsi:type="varchar" name="product_name" nullable="true" length="50" comment="Product Name"/>
+        <column xsi:type="varchar" name="description" nullable="true" length="255" comment="Description"/>
+        <column xsi:type="varchar" name="package_type" nullable="true" length="50" comment="Package Type"/>
+        <column xsi:type="varchar" name="maker" nullable="true" length="255"  comment="Maker or Brand"/>
+        <column xsi:type="int" name="qty" nullable="true"  comment="Qnt Needed"/>
+        <column xsi:type="tinyint" name="status" comment="Request Status"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="product_id"/>
+        </constraint>
+    </table>
+</schema>

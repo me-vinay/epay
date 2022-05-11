@@ -1,0 +1,55 @@
+<?php
+$donorlist = $block->getDonorCollection();?>
+<div class="epay-page-body">
+<div class ="page-header-title"><h2 class="list-title"><?= __('Donations') ?></h2>
+<p class="list-description"><?= __('List of donations to date') ?></p>
+</div>
+<div class="table-wrapper ">
+        <table class="data table" id="donation-list-table">
+        <thead>
+        <tr>
+            <th scope="col" class="col id"><?= __('Id') ?></th>
+            <th scope="col" class="col name"><?= __('Item Name') ?></th>
+            <th scope="col" class="col description"><?= __('Description') ?></th>
+            <th scope="col" class="col donated-by"><?= __('Donated By') ?></th>
+            <th scope="col" class="col donor-type"><?= __('Donor Type') ?></th>
+            <th scope="col" class="col qnt-donated"><?= __('Qunatity Donated') ?></th>
+            <th scope="col" class="col donation-date"><?= __('Donation Date') ?></th>
+
+        </tr>
+        </thead>
+        <tbody>
+            <?php 
+            foreach($donorlist as $donor){?>
+        <tr>
+            <td data-th="<?= $block->escapeHtml(__('Id')) ?>" class="col id">
+                <?php echo $donor['donor_id']; ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Item Name')) ?>" class="col name">
+                <?php echo $donor['product_sku']; ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Description')) ?>" class="col description">
+                <?php echo $donor['description']; ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Donated By')) ?>" class="col donated-by">
+                <?php echo $donor['donated_by']; ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Donor Type')) ?>" class="col donor-type">
+                <?php echo $donor['donor_type']; ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Qunatity Donated')) ?>" class="col qnt-donated">
+                <?php echo $donor['qty']; ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Donation Date')) ?>" class="col donation-date">
+                <?php echo $donor['created_at']; ?>
+            </td>
+        </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+</div>
+</div>
+
+<?php if ($block->getPagerHtml()): ?>
+    <div class="order-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+<?php endif ?>

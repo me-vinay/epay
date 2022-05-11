@@ -1,0 +1,192 @@
+@media only screen and (min-width: 768px) {
+  /**.page-header.header-newskin.type22,
+  .page-header.header-newskin:not(.type16) .nav-sections.sections {
+    background: #fff;
+  }*/
+  
+  .page-header.type22.header-newskin {
+    height: 55px;
+  }
+  .page-header.type22 .header.content {
+    height: 50px;
+    margin-left: 156px;
+    margin-top: -2px;
+  }
+  .page-header.type22 .header.content .sections.nav-sections {
+    margin: 0 61px;
+  }
+  .page-header.type22 .logo img{
+    width: 100px !important;
+  }
+
+  .page-header.type22 .logo{
+    margin: 0px !important;
+
+  }
+  .page-header.type22{
+    padding: .5rem 3rem;
+  }
+ 
+    .main-body{
+      width: 70%;
+    }
+    .page-header.type22 .navigation li.level0 > a.level-top{
+      color: #0c0505;
+      font-weight: normal !important;
+      text-transform: capitalize;
+    }
+    header li{
+      margin-bottom: 0rem !important;
+    }
+    .panel.header.type22.humanitarian ul.navbar-nav .nav-item a.nav-link, .page-header.type22 .navigation li.level0>a {
+      padding: 0px 5px !important;
+    }
+    .navigation li.level0 :hover{
+      border: 1px solid #0c0505;
+      border-radius: 3px;
+    }
+    .page-header.type22 .navigation li.level0>a :hover{
+      border: none;
+    }
+    footer.page-footer .footer-bottom address{
+     float: unset;
+     text-align: center;
+    }
+}
+@media (max-width: 767px){
+  
+  header.page-header .nav-sections-item-content{
+    margin-top: 16px !important;
+  }
+}
+@media only screen and (min-width: 768px){
+  .page-header.type22 .header.content {
+    margin-left: 0px !important;
+  }
+}
+
+#switcher-language-trigger{
+  color: #fff !important;
+}
+
+/**product list page*/
+
+.box-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.box-container .box {
+    width: 265px;
+    border: 1px solid #e8e8e8;
+
+    margin: 1.2rem;
+}
+.box-container .box img {
+    width: 265px;
+    height: 250px;
+}
+.content {
+    margin-left: -22px;
+}
+ol {
+    list-style-type: none;
+}
+
+/**pickup list page*/
+.table {
+    height: fit-content;
+    text-align: left;
+}
+
+.epay-page-body {
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+    margin: auto;
+}
+h2.list-title {
+    margin: 1px 0px;
+    color: rgb(41, 39, 39);
+    font-weight: 400;
+}
+.list-description {
+    margin-top: 8px;
+}
+
+.epay-page-body .table-wrapper {
+    margin-top: 20px;
+}
+.col.name {
+    width: 133px;
+}
+.col.description {
+    width: 252px;
+}
+.col.collection-requested-date {
+    width: 137px;
+}
+.col.status {
+    width: 60px;
+}
+table,
+th,
+td {
+    border: 1px solid #e8e8e8;
+}
+
+.col {
+    vertical-align: middle;
+}
+.data tbody tr:nth-child(odd) {
+    background-color: #f5f5f5;
+}
+/**add products form css */
+.custom-btn {
+    margin-top: 15px;
+}
+.addpro-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.custom-col {
+    width: 25%;
+}
+.form-group {
+    padding: 6px 0px;
+}
+.donation-box{
+    background: rgb(255, 255, 255);
+    width: 30%;
+    margin: 0px auto;
+    padding: 20px 16px;
+    position: relative;
+}
+.donation-popup-container-close{
+    position: absolute;
+    right: 1.5%;
+    font-size: 2.5rem;
+    background: #ff0000;
+    color: #fff;
+    padding: 5px 10px;
+    top: 1.5%;
+    line-height: 2rem;
+}
+.donation-form{
+    width: 50%;
+}
+.donation-field input{
+    height: 22px;
+    line-height: 8px;
+    padding: 5px;
+}
+.donation-field span{
+    line-height: 25px;
+}
+.donation-field .donate-now{
+    margin-top: 18px;
+}

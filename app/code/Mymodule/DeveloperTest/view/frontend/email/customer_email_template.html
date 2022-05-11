@@ -1,0 +1,14 @@
+<!--@subject {{trans "New customer has been registered"}} @-->
+{{template config_path="design/email/header_template"}} 
+
+    <div class="email-intro">
+
+        <span> <b>First Name:</b> {{var firstname}}</span> <br>
+        <span> <b>Last Name:</b> {{var lastname}}</span> <br>
+        <span> <b>Email:</b> {{var email}}</span> 
+
+
+     
+        </div>
+   
+{{template config_path="design/email/footer_template"}} <!--footer of template-->

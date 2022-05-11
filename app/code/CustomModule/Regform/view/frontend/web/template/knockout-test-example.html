@@ -1,0 +1,11 @@
+<div class="component-class">
+    <div data-bind="text: 'Knockout Works Successfully'"></div>
+</div>
+<div data-bind="scope: 'md-ko-example'">
+    <form data-bind="submit: doSomething">
+        <p>First Name: <input data-bind="textInput: firstName" /></p>
+        <p>Last Name: <input data-bind="textInput: lastName" /></p>
+        <p>Email Address: <input data-bind="textInput: emailAddress" /></p>
+        <button type="submit">Submit</button>
+    </form>
+</div>

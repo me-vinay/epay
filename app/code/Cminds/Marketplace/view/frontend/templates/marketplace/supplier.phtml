@@ -5,7 +5,9 @@
 <div class="manufacturer-page">
     <div class="col-main">
         <div class="page-title category-title">
-            <h1><?php echo $block->escapeHtml($customer->getSupplierNameNew()); ?></h1>
+                <h1><?php echo $block->escapeHtml($customer->getSupplierName()); ?></h1>
+                <p><?php echo $block->escapeHtml($customer->getSupplierDescription()); ?></p><hr>
+
         </div>
         <?php if($block->getMarketplaceHelper()->getSupplierLogo($customer->getId())): ?>
             <div class="col-left col-left-first">

@@ -1,0 +1,59 @@
+<?php
+$pickuplist = $block->getPickupCollection();?>
+<div class="epay-page-body">
+<div class ="page-header-title"><h2 class="list-title"><?= __('Pick Up List') ?></h2>
+<p class="list-description"><?= __('List of scheduled collections and their status') ?></p>
+</div>
+<div class="table-wrapper ">
+        <table class="data table pickup-list" id="pickup-list-table">
+        <thead>
+        <tr>
+            <th scope="col" class="col id"><?= __('Id') ?></th>
+            <th scope="col" class="col name"><?= __('Item Name') ?></th>
+            <th scope="col" class="col description"><?= __('Description') ?></th>
+            <th scope="col" class="col donated-by"><?= __('Donated By') ?></th>
+            <th scope="col" class="col pickup-address"><?= __('Pickup Address') ?></th>
+            <th scope="col" class="col pickup-qnt"><?= __('Pickup Qunatity') ?></th>
+            <th scope="col" class="col collection-requested-date"><?= __('Collection Requested Date') ?></th>
+            <th scope="col" class="col status"><?= __('Collection Status') ?></th>
+
+        </tr>
+        </thead>
+        <tbody>
+              <?php 
+            foreach($pickuplist as $pickup){?>
+        <tr>
+            <td data-th="<?= $block->escapeHtml(__('Id')) ?>" class="col id">
+                 <?php echo $pickup['pickup_id']; ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Item Name')) ?>" class="col name">
+                 <?php echo $pickup['product_sku']; ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Description')) ?>" class="col description">
+                 <?php echo $pickup['description']; ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Donated By')) ?>" class="col donated-by">
+                 <?php echo $pickup['donated_by']; ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Pickup Address')) ?>" class="col pickup-address">
+                 <?php echo $pickup['address']; ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Pickup Qunatity')) ?>" class="col pickup-qnt">
+                <?php echo $pickup['qty']; ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Collection Requested Date')) ?>" class="col collection-requested-date">
+                 <?php echo $pickup['created_at']; ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Collection Status')) ?>" class="col status">
+                 <?php echo $pickup['status']; ?>
+            </td>
+        </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+</div>
+</div>
+
+<?php if ($block->getPagerHtml()): ?>
+    <div class="order-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+<?php endif ?>

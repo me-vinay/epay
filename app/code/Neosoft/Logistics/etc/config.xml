@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <carriers>
+            <logistics>
+                <active>1</active>
+                <sallowspecific>0</sallowspecific>
+                <model>Neosoft\Logistics\Model\Carrier\Shipping</model>
+                <name>Logistics</name>
+                <price>10.00</price>
+                <title>Logistics Shipping</title>
+                <specificerrmsg>This shipping method is not available. To use this shipping method, please contact us.</specificerrmsg>
+            </logistics>
+        </carriers>
+    </default>
+</config>

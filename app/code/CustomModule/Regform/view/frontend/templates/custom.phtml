@@ -1,0 +1,28 @@
+
+<?php
+    $isEnable = '1';
+    if($isEnable == '1'){
+    $shippingoffer = 'shippingoffer'; 
+    $couponoffer = 'couponoffer';
+    
+    
+    
+?>
+<!DOCTYPE html>
+<div class="siteoffer-container">
+    <div class="siteoffer">
+        <span> 
+        </span>
+    </div>
+</div><?php }?>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "CustomModule_Regform/js/siteoffer": {
+                            "shippingoffer":   " <?php /* @noEscape */ echo $shippingoffer; ?>",
+                            "couponoffer":   " <?php /* @noEscape */ echo $couponoffer; ?>"
+                        }
+        }
+    }
+</script>

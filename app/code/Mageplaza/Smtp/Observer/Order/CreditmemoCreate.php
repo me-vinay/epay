@@ -55,7 +55,7 @@ class CreditmemoCreate implements ObserverInterface
         LoggerInterface $logger
     ) {
         $this->helperEmailMarketing = $helperEmailMarketing;
-        $this->logger = $logger;
+        $this->logger               = $logger;
     }
 
     /**
@@ -63,7 +63,6 @@ class CreditmemoCreate implements ObserverInterface
      */
     public function execute(Observer $observer)
     {
-
         if ($this->helperEmailMarketing->isEnableEmailMarketing() &&
             $this->helperEmailMarketing->getSecretKey() &&
             $this->helperEmailMarketing->getAppID()
@@ -82,7 +81,7 @@ class CreditmemoCreate implements ObserverInterface
     {
         try {
             if ($creditmemo->getId() && $creditmemo->getCreatedAt() == $creditmemo->getUpdatedAt()) {
-                $this->helperEmailMarketing->sendOrderRequest($creditmemo, 'refunds/create');
+                $this->helperEmailMarketing->sendOrderRequest($creditmemo, EmailMarketing::CREDITMEMO_URL);
             }
         } catch (Exception $e) {
             $this->logger->critical($e->getMessage());

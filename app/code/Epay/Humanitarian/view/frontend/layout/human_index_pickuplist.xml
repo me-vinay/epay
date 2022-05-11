@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Epay_Humanitarian::css/mycss.css" />
+        <title>Pickup List</title>
+    </head>
+    <body>
+    <referenceBlock name="page.main.title" remove="true" />
+
+        <referenceContainer name="content">
+            <block class="Epay\Humanitarian\Block\Pickuplist" name="epaydonation.pickuplist" template="Epay_Humanitarian::pickuplist.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

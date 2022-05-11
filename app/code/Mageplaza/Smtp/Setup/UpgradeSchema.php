@@ -27,6 +27,8 @@ use Magento\Framework\Setup\SchemaSetupInterface;
 use Magento\Framework\Setup\UpgradeSchemaInterface;
 use Magento\Quote\Model\ResourceModel\Quote as QuoteResource;
 use Magento\Sales\Model\ResourceModel\Order as OrderResource;
+use Magento\Customer\Model\ResourceModel\Customer as CustomerResource;
+use Magento\Newsletter\Model\ResourceModel\Subscriber as SubscriberResource;
 use Zend_Db_Exception;
 
 /**
@@ -46,14 +48,33 @@ class UpgradeSchema implements UpgradeSchemaInterface
     protected $orderResource;
 
     /**
-     * UpgradeSchemaPlugin constructor.
+     * @var CustomerResource
+     */
+    protected $customerResource;
+
+    /**
+     * @var SubscriberResource
+     */
+    protected $subscriberResource;
+
+    /**
+     * UpgradeSchema constructor.
+     *
      * @param QuoteResource $quoteResource
      * @param OrderResource $orderResource
+     * @param CustomerResource $customerResource
+     * @param SubscriberResource $subscriberResource
      */
-    public function __construct(QuoteResource $quoteResource, OrderResource $orderResource)
-    {
-        $this->quoteResource = $quoteResource;
-        $this->orderResource = $orderResource;
+    public function __construct(
+        QuoteResource $quoteResource,
+        OrderResource $orderResource,
+        CustomerResource $customerResource,
+        SubscriberResource $subscriberResource
+    ) {
+        $this->quoteResource      = $quoteResource;
+        $this->orderResource      = $orderResource;
+        $this->customerResource   = $customerResource;
+        $this->subscriberResource = $subscriberResource;
     }
 
     /**
@@ -70,43 +91,43 @@ class UpgradeSchema implements UpgradeSchemaInterface
 
         if (version_compare($context->getVersion(), '1.1.0', '<')) {
             $connection->addColumn($setup->getTable('mageplaza_smtp_log'), 'from', [
-                'type' => Table::TYPE_TEXT,
+                'type'     => Table::TYPE_TEXT,
                 'nullable' => true,
-                'length' => 255,
-                'comment' => 'Sender'
+                'length'   => 255,
+                'comment'  => 'Sender'
             ]);
             $connection->addColumn($setup->getTable('mageplaza_smtp_log'), 'to', [
-                'type' => Table::TYPE_TEXT,
+                'type'     => Table::TYPE_TEXT,
                 'nullable' => true,
-                'length' => 255,
-                'comment' => 'Recipient'
+                'length'   => 255,
+                'comment'  => 'Recipient'
             ]);
             $connection->addColumn($setup->getTable('mageplaza_smtp_log'), 'cc', [
-                'type' => Table::TYPE_TEXT,
+                'type'     => Table::TYPE_TEXT,
                 'nullable' => true,
-                'length' => 255,
-                'comment' => 'Cc'
+                'length'   => 255,
+                'comment'  => 'Cc'
             ]);
             $connection->addColumn($setup->getTable('mageplaza_smtp_log'), 'bcc', [
-                'type' => Table::TYPE_TEXT,
+                'type'     => Table::TYPE_TEXT,
                 'nullable' => true,
-                'length' => 255,
-                'comment' => 'Bcc'
+                'length'   => 255,
+                'comment'  => 'Bcc'
             ]);
         }
 
         if (version_compare($context->getVersion(), '1.1.1', '<')) {
             $connection->changeColumn($setup->getTable('mageplaza_smtp_log'), 'from', 'sender', [
-                'type' => Table::TYPE_TEXT,
+                'type'     => Table::TYPE_TEXT,
                 'nullable' => true,
-                'length' => 255,
-                'comment' => 'Sender'
+                'length'   => 255,
+                'comment'  => 'Sender'
             ]);
             $connection->changeColumn($setup->getTable('mageplaza_smtp_log'), 'to', 'recipient', [
-                'type' => Table::TYPE_TEXT,
+                'type'     => Table::TYPE_TEXT,
                 'nullable' => true,
-                'length' => 255,
-                'comment' => 'Recipient'
+                'length'   => 255,
+                'comment'  => 'Recipient'
             ]);
         }
 
@@ -117,7 +138,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
                     'identity' => true,
                     'unsigned' => true,
                     'nullable' => false,
-                    'primary' => true
+                    'primary'  => true
                 ], 'Log Id')
                 ->addColumn('log_ids', Table::TYPE_TEXT, 255, [], 'Log Ids')
                 ->addColumn('token', Table::TYPE_TEXT, 255, [], 'Token')
@@ -128,7 +149,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
                     [
                         'unsigned' => true,
                         'nullable' => false,
-                        'default' => '0'
+                        'default'  => '0'
                     ],
                     'Quote Id'
                 )
@@ -160,40 +181,75 @@ class UpgradeSchema implements UpgradeSchemaInterface
         if (version_compare($context->getVersion(), '1.2.1', '<')) {
             $quoteConnection = $this->quoteResource->getConnection();
             $quoteConnection->addColumn($setup->getTable('quote'), 'mp_smtp_ace_token', [
-                'type' => Table::TYPE_TEXT,
+                'type'     => Table::TYPE_TEXT,
                 'nullable' => true,
-                'length' => 255,
-                'comment' => 'ACE Token'
+                'length'   => 255,
+                'comment'  => 'ACE Token'
             ]);
             $quoteConnection->addColumn($setup->getTable('quote'), 'mp_smtp_ace_sent', [
-                'type' => Table::TYPE_SMALLINT,
+                'type'     => Table::TYPE_SMALLINT,
                 'nullable' => true,
-                'length' => null,
-                'default' => 0,
-                'comment' => 'ACE Sent'
+                'length'   => null,
+                'default'  => 0,
+                'comment'  => 'ACE Sent'
             ]);
             $quoteConnection->addColumn($setup->getTable('quote'), 'mp_smtp_ace_log_ids', [
-                'type' => Table::TYPE_TEXT,
+                'type'     => Table::TYPE_TEXT,
                 'nullable' => true,
-                'length' => '64k',
-                'comment' => 'ACE Log Ids'
+                'length'   => '64k',
+                'comment'  => 'ACE Log Ids'
             ]);
             $quoteConnection->addColumn($setup->getTable('quote'), 'mp_smtp_ace_log_data', [
-                'type' => Table::TYPE_TEXT,
+                'type'     => Table::TYPE_TEXT,
                 'nullable' => true,
-                'length' => '64k',
-                'comment' => 'ACE Log Data'
+                'length'   => '64k',
+                'comment'  => 'ACE Log Data'
             ]);
         }
 
         if (version_compare($context->getVersion(), '1.2.2', '<')) {
             $salesOrderConnection = $this->orderResource->getConnection();
             $salesOrderConnection->addColumn($setup->getTable('sales_order'), 'mp_smtp_email_marketing_synced', [
-                'type' => Table::TYPE_SMALLINT,
+                'type'     => Table::TYPE_SMALLINT,
                 'nullable' => true,
-                'length' => null,
-                'default' => 0,
-                'comment' => 'Mp SMTP Email Marketing synced'
+                'length'   => null,
+                'default'  => 0,
+                'comment'  => 'Mp SMTP Email Marketing synced'
+            ]);
+        }
+
+        if (version_compare($context->getVersion(), '1.2.4', '<')) {
+            $column = [
+                'type'     => Table::TYPE_SMALLINT,
+                'nullable' => true,
+                'length'   => null,
+                'default'  => 0,
+                'comment'  => 'Mp SMTP Email Marketing synced'
+            ];
+
+            $customerConnection = $this->customerResource->getConnection();
+            $customerConnection->addColumn(
+                $setup->getTable('customer_entity'),
+                'mp_smtp_email_marketing_synced',
+                $column
+            );
+
+            $subscriberConnection = $this->subscriberResource->getConnection();
+            $subscriberConnection->addColumn(
+                $setup->getTable('newsletter_subscriber'),
+                'mp_smtp_email_marketing_synced',
+                $column
+            );
+        }
+
+        if (version_compare($context->getVersion(), '1.2.5', '<')) {
+            $salesOrderConnection = $this->orderResource->getConnection();
+            $salesOrderConnection->addColumn($setup->getTable('sales_order'), 'mp_smtp_email_marketing_order_created', [
+                'type'     => Table::TYPE_SMALLINT,
+                'nullable' => true,
+                'length'   => null,
+                'default'  => 0,
+                'comment'  => 'Mp SMTP Email Marketing order created'
             ]);
         }
 

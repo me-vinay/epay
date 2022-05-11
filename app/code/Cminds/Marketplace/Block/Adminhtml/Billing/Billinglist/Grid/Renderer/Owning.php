@@ -1,7 +1,6 @@
 <?php
 
 namespace Cminds\Marketplace\Block\Adminhtml\Billing\Billinglist\Grid\Renderer;
-
 use Magento\Backend\Block\Context;
 use Magento\Backend\Block\Widget\Grid\Column\Renderer\AbstractRenderer;
 use Magento\Framework\DataObject;
@@ -24,18 +23,15 @@ class Owning extends AbstractRenderer
     {
         $totalIncome = $row->getData('total_vendor_income');
         $totalPaid = $row->getData('total_paid_amount');
-
-        $owning = $totalIncome - $totalPaid;
-
+        $withoutfees = $totalIncome - $totalPaid;
+        $owning = ($withoutfees*2.6)/100 +$withoutfees;
         if ((float)$owning <= 0.0) {
             $owning *= -1;
-
             $value = $this->currencyHelper->currency(
                 $owning,
                 true,
                 false
             );
-
             return '<div style="color:#FFF;font-weight:bold;background:green;'
             . 'border-radius:8px;padding:2px 6px;">'
             . $value . '</div>';
@@ -45,9 +41,7 @@ class Owning extends AbstractRenderer
                 true,
                 false
             );
-
-            return '<div style="color:#FFF;font-weight:bold;background:red;'
-            . 'border-radius:8px;padding:2px 6px;">' . $value . '</div>';
+            return $value ;
         }
     }
 }

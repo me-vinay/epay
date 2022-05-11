@@ -1,0 +1,85 @@
+<?php /** @var Epay\Humanitarian\Block\ProList $block */ ?>
+<?php
+$items = $block->getCollection();
+$mediaurl = $block->getMediaUrl();
+$postUrl = $block->getPosturl();
+?>
+
+<div class="prolist-body">
+<div class ="page-header-title addpro-title"><h2 class="list-title"><?= __('Let us help Ukraine') ?></h2>
+<p style="width:76%; text-align:center;" class="list-description"><?= __('The items below are required for delivery to the people of Ukraine. If you are able to provide any of this, please select the card and fill in the amount you can donate.') ?></p>
+</div>
+<div class="table-wrapper ">
+        <table class="data table" id="">
+        <thead>
+        <tr>
+            <th scope="col" class="col id"><?= __('Id') ?></th>
+            <th scope="col" class="col name"><?= __('Item Name') ?></th>
+            <th scope="col" class="col image" style="width:151px;" ><?= __('Image') ?></th>
+            <th scope="col" class="col description"><?= __('Description') ?></th>
+            <th scope="col" class="col package-type"><?= __('Package Type') ?></th>
+            <th scope="col" class="col maker"><?= __('Maker/Brand') ?></th>
+            <th scope="col" class="col qty"><?= __('Qunatity') ?></th>
+            <th scope="col" class="col action approve" ><?= __('Approve') ?></th>
+            <th scope="col" class="col action decline" ><?= __('Decline') ?></th>
+            <th scope="col" class="col status"><?= __('Status') ?></th>
+        </tr>
+        </thead>
+        <tbody>
+              <?php 
+            foreach($items as $item){?>
+        <tr>
+            <td data-th="<?= $block->escapeHtml(__('Id')) ?>" class="col id" data-proid=>
+                 <?php echo $item['product_id']; ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Item Name')) ?>" class="col name">
+                 <?php echo $item['product_name']; ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Image')) ?>" class="col image" >
+            <img src="<?php echo $mediaurl.$item->getImagePath(); ?>" class="courseimg" alt="" height="100px" width="100px">
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Description')) ?>" class="col description">
+                 <?php echo $item['description']; ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Package Type')) ?>" class="col package-type">
+                 <?php echo $item['package_type']; ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Maker/Brand')) ?>" class="col maker">
+                <?php echo $item['maker']; ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Qunatity')) ?>" class="col qty">
+                 <?php echo $item['qty']; ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Approve')) ?>" class="col action" >
+                <?php if($item['status'] == 0){?>
+                <a href="<?php echo $block->getProcessAction().'id/'.$item['product_id']; ?>" 
+                class="btn btn-primary action process">
+                <?php echo __('Approve') ?></a>
+            <?php } else {?> <span>Option Disable</span><?php } ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Decline')) ?>" class="col action" >
+                <?php if($item['status'] == 0){?>
+                <a href="<?php echo $block->getDeleteAction().'id/'.$item['product_id']; ?>" class="btn action delete">
+                <?php echo __('Decline') ?></a> 
+            <?php } else {?> <span>Option Disable</span><?php } ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Status')) ?>" class="col status" id="status<?php echo$item['product_id'];?>" >
+               <?php if($item['status'] == 0):?>
+                <?=__('Pending') ?>
+                <?php elseif($item['status'] == 1):?>
+                <?= __('Approved')?>
+                <?php elseif($item['status'] == 2):?>
+                <?= __('Declined')?>
+                <?php endif ;?>
+            </td>
+        </tr>
+
+            <?php } ?>
+        </tbody>
+    </table>
+</div>
+</div>
+<?php if ($block->getPagerHtml()): ?>
+    <div class="order-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+<?php endif ?>
+

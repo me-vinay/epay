@@ -1,0 +1,134 @@
+<div class ="page-header-title addpro-title"><h2 class="list-title"><?= __('Let us help Ukraine') ?></h2>
+<p class="list-description"><?= __('Enter the products that are neede for donation in the form below') ?></p>
+</div>
+<div class="row">
+<div class="col-md-12 form-container">
+<form name="product_create_form" id="product_create_form" action="<?php echo $block->getFormAction() ?>" method="post" enctype=multipart/form-data data-mage-init='{"validation":{}}'>
+<div class="row">
+                    <div class="custom-col">
+                        <div class="form-group">
+                            <div class="col-md-12 label-container">
+                                <label for="sku">
+                                    <?= __(' Product Sku') ?>
+                                    <span class="required">*</span>:
+                                </label>
+                            </div>
+                            <div class="col-md-12 input-container">
+                                <input type="text"
+                                       id="sku"
+                                       name="sku"
+                                       class="input-text form-control required-entry"
+                                       
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                                <div class="col-md-12 label-container">
+                                <label for="file_upload">
+                                     <?= __('Upload Image') ?>
+                                    <span class="required">*</span>:
+                                </label>   
+                        </div>
+                                   <div class="col-md-12 input-container">
+                                    <input type="file"
+                                           name="file_upload"
+                                           id="file_upload" class="required-entry" />
+                                     </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12 label-container">
+                                <label for="name">
+                                <?= __('Product Name') ?>
+                                    <span class="required">*</span>:
+                                </label>
+                            </div>
+                            <div class="col-md-12 input-container">
+                                <input type="text"
+                                       id="name"
+                                       name="name"
+                                       class="input-text form-control"
+                                       data-validate = "{required:true}"
+                                      
+                                />
+                            </div>
+                        </div>
+                      <div class="form-group">
+                        <div class="col-md-12 label-container">
+                                <label for="description">
+                                  <?= __('Description') ?>
+                                    <span class="required">*</span>:
+                                </label>
+                        </div>
+                            <div class="col-md-12 input-container">
+                                <textarea id="description"
+                                          name="description"
+                                          class="input-text form-control required-entry wysiwyg"
+                                          rows="4"></textarea>
+                                <div id="description_error_required_field_label" class="cminds_error" style="display:none">
+                                    <?php echo $block->escapeHtml(__('This is a required field')); ?>
+                                </div>
+                            </div>
+                      </div>
+                        <div class="form-group">
+                            <div class="col-md-12 label-container">
+                                <label for="package_type">
+                                <?= __('Package Type') ?>
+                                    <span class="required">*</span>:
+                                </label>
+                            </div>
+                            <div class="col-md-12 input-container">
+                                <input type="text"
+                                       id="package_type"
+                                       name="package_type"
+                                       class="input-text form-control required-entry"
+                                      
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12 label-container">
+                                <label for="maker">
+                                <?= __('Brand/Maker')?>
+                                    <span class="required">*</span>:
+                                </label>
+                            </div>
+                            <div class="col-md-12 input-container">
+                                <input type="text"
+                                       id="maker"
+                                       name="maker"
+                                       class="input-text form-control required-entry"
+                                       value="<?php /* @escapeNotVerified */ echo isset($data['maker']) ? $data['maker'] : ''; ?>"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12 label-container">
+                                <label for="qnt_needed">
+                                <?= __('Quantity Needed') ?>
+                                    <span class="required">*</span>:
+                                </label>
+                            </div>
+                            <div class="col-md-12 input-container">
+                                <input type="number"
+                                       id="qnt_needed"
+                                       name="qnt_needed"
+                                       class="input-text form-control required-entry validate-number"
+                                       
+                                />
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-4 custom-btn">
+                            <button type="submit" id="proform"
+                            class="btn btn-primary custom-submit-btn"    data-mage-init='{"donate":{}}'><?= __('Submit') ?></button>
+                    
+</div>
+</div>
+</div>                   
+
+
+    
+</form>
+</div>
+</div>
+

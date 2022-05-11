@@ -1,0 +1,82 @@
+<?php /** @var Epay\Humanitarian\Block\ProList $block */ ?>
+<?php
+$items = $block->getCollection();
+$mediaurl = $block->getMediaUrl();
+?>
+
+
+<div class ="page-header-title addpro-title"><h2 class="list-title"><?= __('Let us help Ukraine') ?></h2>
+<p style="width:76%; text-align:center;" class="list-description"><?= __('The items below are required for delivery to the people of Ukraine. If you are able to provide any of this, please select the card and fill in the amount you can donate.') ?></p>
+</div>
+<div class="box-container">
+<?php if (count($items)) { ?>
+  <?php foreach($items as $item): ?>
+      <div class="box">
+        <img src="<?php echo $mediaurl.$item->getImagePath(); ?>" class="courseimg" alt="">
+        <div class="content" style="margin-left:-22px;">
+          <ol > 
+           <li style="font-size:medium;"> <?= $block->escapeHtml(__('')) ?><?php echo $item->getProductName(); ?></li> 
+           <li><?= __('Description: ') ?><?php echo $item->getDescription(); ?></li>
+           <li><?= __('Package type: ') ?><?php echo $item->getPackageType(); ?></li> 
+           <li><?= __('Quantity Needed: ') ?><?php echo $item->getQty(); ?></li> 
+           </ol> 
+        </div>
+        <hr>
+       <div class="col-md-6 col-sm-4" style="margin-top: -8px; margin-bottom: 10px;" >
+                        <input type="submit"
+                            name="submit"
+                           data-img="<?php echo $mediaurl.$item->getImagePath(); ?>"
+                           data-sku="<?php echo $item->getProductSku(); ?>"
+                           data-name="<?php echo $item->getProductName(); ?>"
+                           data-description="<?php echo $item->getDescription(); ?>"
+                           data-qty="<?php echo $item->getQty(); ?>"
+                            class="btn btn-primary donate-popup "
+                            value="<?php /* @escapeNotVerified */ echo __('Donate') ?>"
+                        />
+                    
+       </div>
+       </div>
+        <?php endforeach; ?> 
+        <?php } ?>   
+      </div>
+<div class="donation-popup-container" style="display: none;">
+  <div class="donation-box">
+      <span class="donation-popup-container-close">x</span>
+    <div class="content-box">
+        <p class="donation-field product-name pre"></p>
+        <div><img src="#" width='100' height='100'></div>
+        <div class="donation-form">
+            <div class="donation-field description pre"></div>
+            
+            <div class="donation-field qty-needed pre"></div>
+            <div class="donation-field">
+                <span>qty donate</span>
+                <input id="donation-qty" class="donation-input" type="text" name="qty">
+            </div>
+            <div class="donation-field">
+              <span>description</span>
+              <input id="donation-description" class="donation-input" type="text" name="description">
+            </div>
+            <div class="donation-field">
+              <span>company name</span>
+              <input id="donation-donated-by" class="donation-input" type="text" name="donated_by">
+            </div>
+            <div class="donation-field">
+              <span>organization to donate</span>
+              <input id="donation-donated-type" class="donation-input" type="text" name="donor_type">
+            </div>
+            <div class="donation-field">
+              <span>Address</span>
+              <input id="donation-address" class="donation-input" type="text" name="address">
+            </div>
+            <div class="donation-field">
+              <span>post code</span>
+              <input id="donation-postcode" class="donation-input"  type="text" name="postcode">
+            </div>
+            <div class="donation-field">
+                <input type="submit" class="donate-now">
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

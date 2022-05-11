@@ -9,6 +9,7 @@ use Magento\Framework\Model\Context;
 use Magento\Framework\Model\ResourceModel\AbstractResource;
 use Magento\Framework\Registry;
 use Magento\Quote\Model\Quote\Item;
+use Psr\Log\LoggerInterface;
 
 class Rates extends AbstractModel
 {
@@ -18,6 +19,7 @@ class Rates extends AbstractModel
     protected $item;
 
     public function __construct(
+        LoggerInterface $logger,
         Cart $cart,
         Item $item,
         Context $context,
@@ -25,6 +27,7 @@ class Rates extends AbstractModel
         AbstractResource $resource = null,
         AbstractDb $resourceCollection = null
     ) {
+        $this->logger = $logger;
         $this->cart = $cart;
         $this->item = $item;
 
@@ -44,6 +47,7 @@ class Rates extends AbstractModel
     public function getRateByWeight($country, $region, $postcode, $total = 0)
     {
         $unserilizedData = $this->unserializeRate();
+        $this->logger->info($country." ".$region.' '.$postcode);
         if (!$unserilizedData) {
             return false;
         }
@@ -90,6 +94,7 @@ class Rates extends AbstractModel
     public function getRateByQty($country = '*', $region = '*', $postcode = '*', $total = 0)
     {
         $unserilizedData = $this->unserializeRate();
+        
         if (!$unserilizedData) {
             return false;
         }

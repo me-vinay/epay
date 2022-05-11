@@ -1,0 +1,16 @@
+<form id=contact-form class="form contact" action=# method=post enctype=multipart/form-data data-mage-init='{"validation":{}}'>
+    <fieldset class=fieldset>
+        <div class="field filesubmission">
+            <label class=label for=filesubmission><span><?= $block->escapeHtml(__('File Attachment')) ?></span></label>
+            <div class=control>
+                <input name=filesubmission id=filesubmission title="<?= $block->escapeHtmlAttr(__('Attachment')) ?>" class="input-file" type="file" />
+            </div>
+        </div>
+    </fieldset>
+    <div class=actions-toolbar>
+        <div class=primary>
+            <input type=hidden name=hideit id=hideit value />
+            <button type=submit title="<?= $block->escapeHtmlAttr(__('Submit')) ?>" class="action submit primary"><span><?= $block->escapeHtml(__('Submit')) ?></span></button>
+        </div>
+    </div>
+</form>

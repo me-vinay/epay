@@ -103,7 +103,7 @@ class Supplier extends AbstractHelper
 
         foreach ($collection as $method) {
             $price = $this->carrier->getPrice($method, $cartItems);
-            //$price = $this->priceHelper->convertToCurrentCurrencyPrice($price);
+            $price = $this->priceHelper->convertToCurrentCurrencyPrice($price);
             $method->setPrice($price);
             $supplierRates[] = $method;
         }

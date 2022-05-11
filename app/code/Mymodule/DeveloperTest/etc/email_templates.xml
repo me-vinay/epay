@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="customer_details_email_to_support"
+              label="Mymodule Developertest"
+              file="customer_email_template.html"
+              type="html"
+              module="Mymodule_DeveloperTest"
+              area="frontend"/>
+</config>

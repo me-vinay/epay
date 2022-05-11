@@ -107,11 +107,11 @@ define([
                         var price = priceUtils.formatPrice(
                             data.price_total.toFixed(2), window.checkoutConfig.priceFormat
                         );
-
+                        
                         $('#s_method_supplier_supplier')
                             .parent()
                             .next('td')
-                            .html('<span><span class="text">'+ price +'</span></span>');
+                            .html('<span><span class="text" >'+ price +'</span></span>');
 
                         $('#s_method_supplier')
                             .parent()

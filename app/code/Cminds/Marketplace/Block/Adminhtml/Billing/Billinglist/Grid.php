@@ -97,7 +97,6 @@ class Grid extends Extended
         $isDiscountEff = $this->_scopeConfig->getValue(
             'configuration_marketplace/configure/is_discount_effective'
         );
-
         $this->addColumn(
             'supplier_id',
             [
@@ -110,7 +109,7 @@ class Grid extends Extended
         $this->addColumn(
             'increment_id',
             [
-                'header' => __('Order Increment ID'),
+                'header' => __('Order ID'),
                 'index' => 'increment_id',
                 'filter_index' => 'o.increment_id',
                 'type' => 'text',
@@ -139,7 +138,7 @@ class Grid extends Extended
         $this->addColumn(
             'total_qty',
             [
-                'header' => __('Total Qty'),
+                'header' => __('Order Qty'),
                 'index' => 'total_qty',
                 'filter_index' => 'main_table.qty_ordered',
                 'type' => 'number',
@@ -149,7 +148,7 @@ class Grid extends Extended
         $this->addColumn(
             'total_price',
             [
-                'header' => __('Total Price'),
+                'header' => __('Actual Price'),
                 'index' => 'total_price',
                 'type' => 'price',
                 'filter_index' => 'main_table.row_total',
@@ -161,7 +160,7 @@ class Grid extends Extended
         $this->addColumn(
             'total_vendor_income',
             [
-                'header' => __('Total Income'),
+                'header' => __('Discounted Price'),
                 'index' => 'total_vendor_income',
                 'type' => 'price',
                 'filter_index' => 'main_table.vendor_income',
@@ -169,6 +168,7 @@ class Grid extends Extended
                     ->getValue(Currency::XML_PATH_CURRENCY_BASE),
             ]
         );
+      
 
         /*if ($isDiscountEff) {
             $this->addColumn(
@@ -198,7 +198,7 @@ class Grid extends Extended
         $this->addColumn(
             'total_paid_amount',
             [
-                'header' => __('Total Paid Amount'),
+                'header' => __('Amount Paid'),
                 'index' => 'total_paid_amount',
                 'type' => 'price',
                 'filter_index' => 'pi.value',
@@ -207,9 +207,22 @@ class Grid extends Extended
             ]
         );
         $this->addColumn(
+            'fees',
+            [
+                'header' => __('Fees'),
+                'index' => 'fees',
+                'totals_label' => '',
+                'filter' => false,
+                'align' => 'center',
+                'type' => 'price',
+                'renderer' => '\Cminds\Marketplace\Block\Adminhtml'
+                    . '\Billing\Billinglist\Grid\Renderer\Fees',
+            ]
+        );
+        $this->addColumn(
             'owning',
             [
-                'header' => __('Owing'),
+                'header' => __('Amount Owed to Vendor'),
                 'index' => 'owning',
                 'totals_label' => '',
                 'filter' => false,
@@ -234,7 +247,7 @@ class Grid extends Extended
                         . '\Billing\Billinglist\Grid\Renderer\Owningdiscount',
                 ]
             );
-        }*/
+        }
 
         $this->addColumn(
             'action',
@@ -248,7 +261,11 @@ class Grid extends Extended
                 'sortable' => false,
                 'is_system' => true,
             ]
-        );
+        );*/
+
+
+        $this->addExportType('*/*/exportCsv', __('CSV'));
+        $this->addExportType('*/*/exportXml', __('Excel XML'));
 
         return parent::_prepareColumns();
     }

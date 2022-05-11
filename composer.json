@@ -73,5 +73,14 @@
     ],
     "extra": {
         "magento-force": "override"
+    },
+    
+    "replace": {
+        "dotmailer/dotmailer-magento2-extension": "*",
+        "dotmailer/dotmailer-magento2-extension-package": "*",
+        "dotmailer/dotmailer-magento2-extension-enterprise": "*",
+        "dotmailer/dotmailer-magento2-extension-chat": "*"
     }
+
+   
 }

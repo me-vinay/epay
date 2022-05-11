@@ -70,7 +70,7 @@ class Payment extends AbstractDb
                 'items_count',
                 'count(main_table.item_id)',
                 'main_table.item_id'
-            )
+            )    
             ->addExpressionFieldToSelect(
                 'total_price',
                 'sum(main_table.row_total)',

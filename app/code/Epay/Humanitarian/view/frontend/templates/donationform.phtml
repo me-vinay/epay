@@ -1,0 +1,107 @@
+<?php /** @var Epay\Humanitarian\Block\Donate $block */ ?>
+<div class="row">
+<div class="col-md-12 form-container">
+<form name="product_create_form" id="product_create_form" action="<?php echo $block->getFormAction() ?>" method="post" enctype=multipart/form-data data-mage-init='{"validation":{}}'>
+<div class="row">
+                    <div class="col-md-6 col-sm-6 custom-col">
+                        <div class="form-group">
+                            <div class="col-md-12 label-container">
+                                <label for="qnt_to_donate">
+                                <?= __('Qunatity to Donate') ?>
+                                    <span class="required">*</span>:
+                                </label>
+                            </div>
+                            <div class="col-md-12 input-container">
+                                <input type="number"
+                                       id="qnt_to_donate"
+                                       name="qnt_to_donate"
+                                       class="input-text form-control required-entry"
+                                       value="<?php /* @escapeNotVerified */ echo isset($data['qnt_to_donate']) ? $data['qnt_to_donate'] : ''; ?>"
+                                />
+                            </div>
+                        </div> 
+                        <div class="form-group">
+                            <div class="col-md-12 label-container">
+                                <label for="company_name">
+                                <?= __('Company Name') ?>
+                                    <span class="required">*</span>:
+                                </label>
+                            </div>
+                            <div class="col-md-12 input-container">
+                                <input type="text"
+                                       id="company_name"
+                                       name="company_name"
+                                       class="input-text form-control required-entry"
+                                       value="<?php /* @escapeNotVerified */ echo isset($data['company_name']) ? $data['company_name'] : ''; ?>"
+                                />
+                            </div>
+                        </div> 
+                        <div class="form-group">
+                            <div class="col-md-12 label-container">
+                                <label for="org_typ">
+                                <?= __('Organization Type') ?>
+                                    <span class="required">*</span>:
+                                </label>
+                            </div>
+                            <div class="col-md-12 input-container">
+                                <input type="text"
+                                       id="org_typ"
+                                       name="org_typ"
+                                       class="input-text form-control required-entry"
+                                       value="<?php /* @escapeNotVerified */ echo isset($data['org_typ']) ? $data['org_typ'] : ''; ?>"
+                                />
+                            </div>
+                        </div> 
+                        <div class="form-group">
+                            <div class="col-md-12 label-container">
+                                <label for="address_1">
+                                <?= __('Address Line 1') ?>
+                                    <span class="required">*</span>:
+                                </label>
+                            </div>
+                            <div class="col-md-12 input-container">
+                                <input type="text"
+                                       id="address_1"
+                                       name="address_1"
+                                       class="input-text form-control required-entry"
+                                       value="<?php /* @escapeNotVerified */ echo isset($data['address_1']) ? $data['address_1'] : ''; ?>"
+                                />
+                            </div>
+                        </div> 
+                        <div class="form-group">
+                            <div class="col-md-12 label-container">
+                                <label for="address_2">
+                                <?= __('Address Line 1') ?>
+                                    <span class="required">*</span>:
+                                </label>
+                            </div>
+                            <div class="col-md-12 input-container">
+                                <input type="text"
+                                       id="address_2"
+                                       name="address_2"
+                                       class="input-text form-control required-entry"
+                                       value="<?php /* @escapeNotVerified */ echo isset($data['address_2']) ? $data['address_2'] : ''; ?>"
+                                />
+                            </div>
+                        </div> 
+                        <div class="form-group">
+                            <div class="col-md-12 label-container">
+                                <label for="post_code">
+                                <?= __('Post Code') ?>
+                                    <span class="required">*</span>:
+                                </label>
+                            </div>
+                            <div class="col-md-12 input-container">
+                                <input type="text"
+                                       id="post_code"
+                                       name="post_code"
+                                       class="input-text form-control required-entry"
+                                       value="<?php /* @escapeNotVerified */ echo isset($data['post_code']) ? $data['post_code'] : ''; ?>"
+                                />
+                            </div>
+                        </div> 
+                    </div>
+</div>
+</form>
+</div>
+</div>

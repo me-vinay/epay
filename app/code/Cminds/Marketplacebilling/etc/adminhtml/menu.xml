@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        
+        <add id="Cminds_Marketplacebilling::billing"
+             title="Custom Billing Report" module="Cminds_Marketplacebilling"
+             sortOrder="80" parent="Cminds_Supplierfrontendproductuploader::suppliers_content"
+             action="marketplacebilling/billing/index"
+             resource="Cminds_Marketplacebilling::billing"/>
+    </menu>
+</config>
